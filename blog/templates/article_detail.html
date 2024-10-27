@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ article.title }}</title></head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.published_date }}</p>
+    <p>{{ article.content }}</p>
+    <a href="{% url 'article_list' %}">Back to all articles</a>
+</body>
+</html>
+

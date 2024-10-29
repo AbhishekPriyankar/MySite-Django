@@ -9,11 +9,11 @@ jobs:
 
     steps:
       # Step 1: Check out the code from the repository
-      - uses: actions/checkout@v2  # This action checks out the repository code to the runner
+      - uses: actions/checkout@v3  # Updated checkout action to v3
 
       # Step 2: Set up Python environment for the workflow
       - name: Set up Python
-        uses: actions/setup-python@v2  # Official action to set up a Python version
+        uses: actions/setup-python@v3  # Updated Python setup action to v3
         with:
           python-version: '3.x'  # Specifies a Python 3 version; defaults to the latest 3.x version
 
@@ -34,7 +34,7 @@ jobs:
 
       # Step 5: Upload HTML coverage report as an artifact
       - name: Upload coverage report
-        uses: actions/upload-artifact@v2  # Action to upload coverage report
+        uses: actions/upload-artifact@v3  # Updated to v3 to avoid deprecation
         with:
           name: coverage-report
           path: htmlcov  # Path to the HTML report directory

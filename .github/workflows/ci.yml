@@ -27,7 +27,7 @@ jobs:
         # Step 4: Run tests with coverage
       - name: Run tests with coverage
         env:
-            DJANGO_SETTINGS_MODULE: mysite.test_settings  # Ensure it uses test_settings
+            DJANGO_SETTINGS_MODULE: test_settings  # Ensure it uses test_settings
         run: |
             coverage run --source='.' manage.py test blog  # Runs tests with coverage on the 'blog' app
             coverage html  # Generates HTML report of coverage

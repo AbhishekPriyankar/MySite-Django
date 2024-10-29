@@ -10,6 +10,7 @@
             <li>
                 <a href="{% url 'article_detail' id=article.id %}">{{ article.title }}</a>
                 - Published on {{ article.published_date }}
+                <p>{{ article.content }}</p> <!-- Displaying article content here -->
             </li>
         {% endfor %}
     </ul>
@@ -17,4 +18,3 @@
     <a href="{% url 'article_create' %}">Create a New Article</a>
 </body>
 </html>
-

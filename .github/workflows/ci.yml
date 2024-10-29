@@ -1,0 +1,33 @@
+# .github/workflows/ci.yml
+# This GitHub Actions workflow file sets up Continuous Integration (CI) for the project.
+# It runs tests automatically on every push and pull request to ensure code quality and correctness.
+
+name: CI  # Name of the workflow, appears in GitHub Actions UI
+
+# Specifies when this workflow should run.
+# It triggers on every push to any branch and on pull requests.
+on: [push, pull_request]
+
+# Defines the jobs in this workflow. Here we have only one job named "test".
+jobs:
+  test:
+    # Specifies the environment where the job will run. "ubuntu-latest" uses the latest stable version of Ubuntu.
+    runs-on: ubuntu-latest
+
+    # Defines the sequence of steps to execute within this job.
+    steps:
+    - uses: actions/checkout@v2  # Checks out the code from the GitHub repository so it can be used in the workflow
+
+    - name: Set up Python  # Sets up the Python environment for the workflow
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Specifies the Python version to use (e.g., 3.8, 3.9)
+
+    - name: Install dependencies  # Installs the necessary Python packages
+      run: |
+        python -m pip install --upgrade pip  # Upgrades pip, the Python package manager
+        pip install -r requirements.txt  # Installs dependencies from requirements.txt
+
+    - name: Run tests  # Runs the test suite to check for code correctness
+      run: |
+        python -m unittest discover  # Discover and run all tests in the project using Python's unittest framework
